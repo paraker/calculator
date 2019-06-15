@@ -23,6 +23,4 @@ jobs:  # Any jobs we want circleci to do
           name: run tests  # Just a name
           # Run PEP8 test with flake8
           # Run our custom tests, only on our calculator file, include file coverage
-          command: |
-            pipenv shell
-
+          command: pipenv shell
