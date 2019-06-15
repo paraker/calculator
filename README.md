@@ -12,5 +12,5 @@ Run module pytest with coverage flag on the testable code in the current directo
     python -m pytest --cov .
 
 # flake8
-
+ 
     flake8 --statistics
