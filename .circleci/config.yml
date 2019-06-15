@@ -17,7 +17,6 @@ jobs:  # Any jobs we want circleci to do
           # Install packages in Pipfile
           command: |
             python3 -m pipenv --python 3.7
-            python3 -m pipenv shell
             pipenv install
 
       - run:
@@ -25,5 +24,6 @@ jobs:  # Any jobs we want circleci to do
           # Run PEP8 test with flake8
           # Run our custom tests, only on our calculator file, include file coverage
           command: |
+            python3 -m pipenv shell
             flake8 --statistics
             python3 -m pytest -v --cov=app.calculator
