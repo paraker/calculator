@@ -25,4 +25,4 @@ jobs:  # Any jobs we want circleci to do
           # Run our custom tests, only on our calculator file, include file coverage
           command: |
             pipenv shell
-            flake8 --statistics
+            python3 -m pytest -v --cov=app.calculator
