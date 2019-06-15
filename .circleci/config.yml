@@ -26,5 +26,5 @@ jobs:  # Any jobs we want circleci to do
           # Run PEP8 test with flake8
           # Run our custom tests, only on our calculator file, include file coverage
           command: |
-            pipenv shell
+            source $(pipenv --venv)/bin/activate
             python3 -m pytest -v --cov=app.calculator
