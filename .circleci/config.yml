@@ -6,17 +6,20 @@ jobs:  # Any jobs we want circleci to do
   build:  # Mandatory job that must be included
     docker:  # Go to docker
       - image: circleci/python:3.7  # Load a prebaked python3.7
+        environment:
+          PIPENV_VENV_IN_PROJECT: true
     working_directory: ~/repo  # Create temp working directory in the container to store our files
 
     steps:
       - checkout  # Checkout repo from github
-      - run:  # Do this step
+
+      - run:
           name: install dependencies  # Just a name
           # Create virtual environment
           # Activate environment
           # Install packages in Pipfile
           command: |
-            python3 -m pipenv --python 3.7
+            sudo pip install pipenv
             pipenv install
 
       - run:
@@ -24,5 +27,4 @@ jobs:  # Any jobs we want circleci to do
           # Run PEP8 test with flake8
           # Run our custom tests, only on our calculator file, include file coverage
           command: |
-            pipenv shell
-            python3 -m pytest -v --cov=app.calculator
+            pipenv run "python3 -m pytest -v --cov=app.calculator"
