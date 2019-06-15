@@ -1,0 +1,27 @@
+# Python CircleCI 2.0 configuration file
+
+version: 2  # Version of circleci api
+
+jobs:  # Any jobs we want circleci to do
+  build:  # Mandatory job that must be included
+    docker:  # Go to docker
+      - image: circleci/python:3.7  # Load a prebaked python3.7
+    working_directory: ~/repo  # Create temp working directory in the container to store our files
+
+    steps:
+      - checkout  # Checkout repo from github
+      - run:  # Do this step
+          name: install dependencies  # Just a name
+          # Create virtual environment
+          # Activate environment
+          # Install packages in Pipfile
+          command: |
+            python3 -m pipenv --python 3.7
+            python3 -m pipenv shell
+            pipenv install
+
+      - run:
+          name: run tests
+          command: |
+            flake8 --statistics
+            pytest -v --cov=calculator
