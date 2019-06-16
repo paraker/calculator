@@ -13,6 +13,10 @@ jobs:  # Any jobs we want circleci to do
     steps:
       - checkout  # Checkout repo from github
 
+      # Download cached dependencies?
+      - restore_cache:
+          key: deps-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
+
       - run:
           name: install dependencies  # Just a name
           # Create virtual environment
@@ -20,6 +24,12 @@ jobs:  # Any jobs we want circleci to do
           # Install packages in Pipfile
           command: |
             pipenv install
+
+      # Save cache of dependencies in /home/circleci/repo/.venv
+      - save_cache:
+          key: deps-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
+          paths:
+            - ".venv"
 
       - run:
           name: run tests  # Just a name
