@@ -24,3 +24,11 @@ IMPORTANT to run pytest as a module to get the import statements correct!
  Run a PEP8 test on your app code
  
     flake8 app/*.py --statistics
+
+# TODO
+peer review, realpython advanced git tips
+https://realpython.com/advanced-git-for-pythonistas/
+https://help.github.com/en/categories/collaborating-with-issues-and-pull-requests
+
+pipenv guide
+Artifacts and CI/CD - 
