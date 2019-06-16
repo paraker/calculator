@@ -20,7 +20,7 @@ jobs:  # Any jobs we want circleci to do
           # Install packages in Pipfile
           command: |
             pipenv install
-  test:
+
       - run:
           name: run tests  # Just a name
           # Activate pipenv, must use this syntax rather than "pipenv shell"
@@ -36,4 +36,3 @@ workflows:
   workflow:
     jobs:
       - build
-      - test
