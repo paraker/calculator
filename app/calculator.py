@@ -13,3 +13,7 @@ def subtract(first_term: int, second_term: int) -> int:
 
 def multiplication(first_term: int, second_term: int) -> int:
     return first_term * second_term
+
+
+def division(first_term: int, second_term: int) -> int:
+    return first_term / second_term
