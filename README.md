@@ -28,8 +28,9 @@ IMPORTANT to run pytest as a module to get the import statements correct!
 # TODO
 ### peer review, realpython advanced git tips
 https://realpython.com/advanced-git-for-pythonistas/
+
 https://help.github.com/en/categories/collaborating-with-issues-and-pull-requests
 
-###Artifacts and CI/CD
+### Artifacts and CI/CD
 Would be useful to create a deployable artifact (finished, packaged product).
 Haven't found a good resource for this just yet. 
