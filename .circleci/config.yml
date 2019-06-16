@@ -30,3 +30,8 @@ jobs:  # Any jobs we want circleci to do
             source $(pipenv --venv)/bin/activate
             flake8 app/*.py --statistics
             python3 -m pytest -v --cov=app.calculator
+workflows:
+  version: 2
+  workflow:
+    jobs:
+      - build
